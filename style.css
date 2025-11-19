@@ -19,16 +19,13 @@
 
 html {
     scroll-behavior: smooth;
-    color-scheme: light !important; /* FORZATURA TEMA */
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    /* FORZATURA BACKGROUND e TESTO */
-    background-color: var(--background-light) !important;
-    color: var(--text-dark) !important; 
+    background-color: var(--background-light);
+    color: var(--text-dark);
     line-height: 1.6;
-    color-scheme: light !important; /* FORZATURA TEMA */
 }
 
 body.modal-open {
@@ -97,8 +94,9 @@ body.modal-open {
 
 /* --- NAVBAR --- */
 .navbar {
-    background-color: var(--background-white) !important; /* FORZATURA */
-    backdrop-filter: none;
+    /* Manteniamo l'effetto blur e l'opacità solo per il desktop */
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
@@ -133,8 +131,8 @@ body.modal-open {
 }
 
 .nav-link {
-    color: var(--text-medium) !important; /* FORZATURA TESTO */
     text-decoration: none;
+    color: var(--text-medium);
     font-weight: 600;
     transition: color 0.3s ease;
 }
@@ -209,7 +207,7 @@ body.modal-open {
 }
 
 .section-light {
-    background-color: #f3f4f6 !important; /* FORZATURA */
+    background-color: #f3f4f6; /* gray-100 */
 }
 
 .section-header {
@@ -220,13 +218,13 @@ body.modal-open {
 .section-title {
     font-size: 2.5rem;
     font-weight: 800;
-    color: var(--text-dark) !important; /* FORZATURA TESTO */
+    color: var(--text-dark);
     margin-bottom: 1rem;
 }
 
 .section-description {
     font-size: 1.125rem;
-    color: var(--text-medium) !important; /* FORZATURA TESTO */
+    color: var(--text-medium);
     max-width: 600px;
     margin: 0 auto;
 }
@@ -243,7 +241,7 @@ body.modal-open {
 }
 
 .service-card {
-    background-color: var(--background-white) !important; /* FORZATURA */
+    background-color: var(--background-white);
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -267,12 +265,12 @@ body.modal-open {
 .service-card-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-dark) !important; /* FORZATURA TESTO */
+    color: var(--text-dark);
     margin-bottom: 0.5rem;
 }
 
 .service-card-text {
-    color: var(--text-medium) !important; /* FORZATURA TESTO */
+    color: var(--text-medium);
 }
 
 /* --- LAVORI SECTION --- */
@@ -283,7 +281,7 @@ body.modal-open {
     margin-top: 2rem;
 }
 .lavoro-item {
-    background-color: var(--background-white) !important; /* FORZATURA */
+    background-color: var(--background-white);
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
@@ -291,7 +289,6 @@ body.modal-open {
 .lavoro-item h3 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-dark) !important; /* FORZATURA TESTO */
     margin-bottom: 1.5rem;
 }
 .lavoro-images {
@@ -313,7 +310,7 @@ body.modal-open {
     display: block;
     margin-top: 0.75rem;
     font-weight: 600;
-    color: var(--text-medium) !important; /* FORZATURA TESTO */
+    color: var(--text-medium);
 }
 
 
@@ -337,12 +334,12 @@ body.modal-open {
 .contact-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--primary-dark-color) !important; /* FORZATURA TESTO */
+    color: var(--primary-dark-color);
 }
 
 .contact-link, .contact-text {
     font-size: 1.125rem;
-    color: var(--text-medium) !important; /* FORZATURA TESTO */
+    color: var(--text-medium);
     text-decoration: none;
 }
 
@@ -363,7 +360,6 @@ body.modal-open {
 }
 
 /* --- FOOTER --- */
-/* NESSUNA MODIFICA: Mantenuto lo sfondo scuro come richiesto. */
 .footer {
     background-color: var(--footer-bg);
     color: var(--text-light);
@@ -421,7 +417,7 @@ body.modal-open {
 }
 
 .modal-content {
-    background-color: #fefefe !important; /* FORZATURA */
+    background-color: #fefefe;
     padding: 2.5rem;
     border: 1px solid #888;
     width: 90%;
@@ -434,7 +430,33 @@ body.modal-open {
     overflow-y: auto;
 }
 
-/* ... (omesse le regole @keyframes e .close-btn) ... */
+@keyframes slide-down {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+}
 
 #preventivo-form {
     display: flex;
@@ -451,7 +473,7 @@ body.modal-open {
 .form-group label {
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: var(--text-medium) !important; /* FORZATURA TESTO */
+    color: var(--text-medium);
 }
 
 .form-group input[type="text"],
@@ -464,20 +486,53 @@ body.modal-open {
     font-size: 1rem;
     font-family: 'Poppins', sans-serif;
     transition: border-color 0.3s;
-    background-color: var(--background-white) !important; /* FORZATURA INPUT BG */
-    color: var(--text-dark) !important; /* FORZATURA INPUT TESTO */
 }
 
-/* ... (omesse le regole relative a form-group-checkbox e btn-form-submit) ... */
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
+}
+
+.form-group-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.form-group-checkbox input[type="checkbox"] {
+    width: 1.15rem;
+    height: 1.15rem;
+    accent-color: var(--primary-color);
+}
+.form-group-checkbox label {
+    font-size: 0.875rem;
+    color: var(--text-medium);
+}
+
+.btn-form-submit {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border: none;
+    margin-top: 1rem;
+    align-self: flex-start;
+}
+
+.btn-form-submit:hover {
+    background-color: var(--primary-dark-color);
+}
 
 .modal-content h2 {
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--text-dark) !important; /* FORZATURA TESTO */
+    color: var(--text-dark);
 }
 
 .modal-content p {
-    color: var(--text-medium) !important; /* FORZATURA TESTO */
+    color: var(--text-medium);
     margin-top: 0.5rem;
 }
 
@@ -501,30 +556,49 @@ body.modal-open {
 }
 
 @media (max-width: 767px) {
+    /* 1. Forza la navbar principale a essere completamente bianca su mobile */
     .navbar {
-        background-color: var(--background-white) !important; /* FORZATURA */
-        backdrop-filter: none; 
+        background-color: var(--background-white); /* Bianco solido */
+        backdrop-filter: none; /* Rimuovi il blur */
     }
     
     .nav-menu {
         display: none;
         flex-direction: column;
         width: 100%;
-        background-color: var(--background-white) !important; /* FORZATURA */
+        /* 2. Assicurati che il background del menu sia bianco solido senza ereditare l'opacità */
+        background-color: var(--background-white); 
         position: absolute;
         top: 100%;
         left: 0;
         padding: 1rem 0;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
-    /* ... (omesse le regole restanti del media query) ... */
     .nav-link {
-        color: var(--text-medium) !important; /* FORZATURA TESTO */
         padding: 0.75rem;
         width: 100%;
         text-align: center;
     }
-    /* ... (omesse le regole restanti del media query) ... */
+    .btn-nav {
+        width: calc(100% - 2rem);
+        margin: 0.5rem 1rem;
+    }
+    .hamburger {
+        display: flex;
+    }
+
+    .menu-toggle:checked ~ .nav-menu {
+        display: flex;
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
     
     .contact-content-wrapper {
         grid-template-columns: 1fr;
